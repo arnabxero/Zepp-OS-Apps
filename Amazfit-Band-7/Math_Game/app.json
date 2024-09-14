@@ -1,0 +1,62 @@
+{
+  "i18n": {
+    "en-US": {
+      "appName": "Math Game"
+    }
+  },
+  "defaultLanguage": "en-US",
+  "app": {
+    "appIdType": 0,
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    },
+    "appId": 1028085,
+    "appName": "Math Game",
+    "icon": "icon.png",
+    "vender": "https://arnob.dev",
+    "description": "This is the recreation of the Forza Horizon game. Enjoy!"
+  },
+  "runtime": {
+    "apiVersion": {
+      "compatible": "1.0.0",
+      "target": "1.0.1",
+      "minVersion": "1.0.0"
+    }
+  },
+  "targets": {
+    "Amafit Band 7": {
+      "module": {
+        "page": {
+          "pages": [
+            "pages/index.page"
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "name": "Amafit Band 7",
+          "deviceSource": 252
+        },
+        {
+          "name": "Amafit Band 7",
+          "deviceSource": 253
+        },
+        {
+          "name": "Amazfit Band 7",
+          "deviceSource": 254
+        }
+      ],
+      "designWidth": 216
+    }
+  },
+  "configVersion": "v2",
+  "permissions": []
+}
