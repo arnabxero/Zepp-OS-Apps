@@ -1,0 +1,63 @@
+{
+    "configVersion": "v2",
+    "app": {
+        "appId": 1029480,
+        "appName": "AI-Chat",
+        "appType": "app",
+        "version": {
+            "code": 1,
+            "name": "1.3.1"
+        },
+        "icon": "icon.png",
+        "vender": "zepp",
+        "description": "empty app"
+    },
+    "permissions": [],
+    "runtime": {
+        "apiVersion": {
+            "compatible": "1.0.0",
+            "target": "1.0.1",
+            "minVersion": "1.0"
+        },
+        "type": 2
+    },
+    "i18n": {
+        "en-US": {
+            "appName": "AI-Chat"
+        }
+    },
+    "defaultLanguage": "en-US",
+    "module": {
+        "page": {
+            "pages": [
+                "page/HomeScreen",
+                "page/KeyboardScreen",
+                "page/ChatViewScreen",
+                "page/SettingsScreen",
+                "page/AboutScreen",
+                "page/ScreenBoardSetup",
+                "page/PrivacyWarningScreen",
+                "page/FontSetupScreen",
+                "page/DonateScreen"
+            ]
+        },
+        "app-side": {
+            "path": "app-side/index"
+        },
+        "setting": {
+            "path": "setting/index"
+        }
+    },
+    "platforms": [
+        {
+            "name": "amazfit-band7-w",
+            "deviceSource": 254
+        }
+    ],
+    "packageInfo": {
+        "mode": "production",
+        "timeStamp": 1702970462,
+        "expiredTime": 172800,
+        "zpm": "3.0.1"
+    }
+}

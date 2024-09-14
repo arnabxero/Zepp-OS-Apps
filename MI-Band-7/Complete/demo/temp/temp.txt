@@ -1,0 +1,3159 @@
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+IMG
+The image component is used to display images and supports image rotation.
+
+Create UI components​
+const img = hmUI.createWidget(hmUI.widget.IMG, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+angle	The rotation angle of the picture (the 12-point direction is 0 degrees).	NO	number
+center_x	The rotation center of the picture.	NO	number
+center_y	The rotation center of the picture.	NO	number
+pos_x	The x point of the picture for the relative coordinate of the component.	NO	number
+pos_y	The y point of the picture for the relative coordinate of the component.	NO	number
+src	The path of the image.	YES	string
+w	The width of the component.If not passed then set the width of the image itself	NO	number
+h	The height of the component.If not passed then set the height of the image itself	NO	number
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+Image example​
+axis
+
+rotate
+
+Code example​
+const img_hour = hmUI.createWidget(hmUI.widget.IMG)
+img_hour.setProperty(hmUI.prop.MORE, {
+  x: 0,
+  y: 0,
+  w: 454,
+  h: 454,
+  pos_x: 454 / 2 - 27,
+  pos_y: 50 + 50,
+  center_x: 454 / 2,
+  center_x: 454 / 2,
+  src: 'images/hour.png',
+  angle: 30
+})
+Previous
+« Mini Program Configuration
+Next
+TEXT »
+Create UI components
+Type
+Param: object
+Image example
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.
+
+
+
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+BUTTON
+The button control supports setting images and colors for normal and pressed states.
+
+Create UI components​
+const button = hmUI.createWidget(hmUI.widget.BUTTON, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of components	YES	number
+y	The y-coordinate of components	YES	number
+w	The width of components;If set to -1, the size of normal_src is preferred, otherwise the default is 100.	YES	number
+h	The height of components;If set to -1, the size of normal_src is preferred, otherwise the default is 40.	YES	number
+text	Text displayed on the button.	YES	string
+color	The color of the text.	NO	number
+text_size	The font size of the text.	NO	number
+press_src	The image of background displayed when pressed.	NO	string
+normal_src	Normal state of the background image.	NO	string
+press_color	The color of background when pressed.	NO	number
+normal_color	The color of normal state background.	NO	number
+radius	Rounded corners when using color as button background.	NO	number
+click_func	Callbacks for button clicks.	NO	ClickFunc
+When neither the background nor the color of the button is set, the default click state background color is used (normal black, click gray).
+When both the background and color of the button are set, the background color is used instead of the background image.
+The radius field is only useful when the background color is set.
+ClickFunc​
+(button: Button) => void
+The button instance created by the createWidget method.
+
+Code example​
+function buttonClickFunc(button) {}
+const button = hmUI.createWidget(hmUI.widget.BUTTON, {
+  x: 0,
+  y: 100,
+  w: 218,
+  h: 74,
+  press_src: rootPath + 'test/normalbtn_h.png',
+  normal_src: rootPath + 'test/normalbtn_n.png',
+  press_color: 0x1976d2,
+  normal_color: 0xef5350,
+  text: 'button',
+  click_func: buttonClickFunc
+})
+Previous
+« CIRCLE
+Next
+RADIO_GROUP »
+Create UI components
+Type
+Param: object
+ClickFunc
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.
+
+
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+PICK_DATE
+Time picker control, providing user choice
+
+Create UI components​
+const pickDate = hmUI.createWidget(hmUI.widget.PICK_DATE, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type	
+x	Control x-coordinate (x <= 0 will be centered by default)	YES	number	
+y	Control y-coordinate	YES	number	
+w	Width of the entire control (width less than 1/2 of the device width will be determined as an exception, set to the default value of 300px)	NO	number	
+padding_1	padding between the first and second columns	NO	number	
+padding_2	padding between two and three columns	NO	number	
+font_size	The size of the text on the control, default 36	NO	number	
+startYear	Start year	NO	number	
+endYear	End year		NO	number
+initYear	Initial year	NO	number	
+initMonth	Initial month	NO	number	
+initDay	Initial day	NO	number	
+initHour	Initial hour	NO	number	
+initMin	Initial minute	NO	number	
+getProperty supported Fields​
+Properties	Description	Type
+year	Year	number
+month	Month	number
+day	Day	number
+hour	Hour	number
+minute	Minute	number
+Code example​
+pickdate = hmUI.createWidget(hmUI.widget.PICK_DATE)
+pickdate.setProperty(hmUI.prop.MORE, {
+  x: 20,
+  y: 20,
+  startYear: 2000,
+  endYear: 2030,
+  initYear: 2021,
+  initMonth: 2,
+  initDay: 3
+})
+
+picktime = hmUI.createWidget(hmUI.widget.PICK_TIME)
+picktime.setProperty(hmUI.prop.MORE, {
+  x: 20,
+  y: 200,
+  initHour: 1,
+  initMin: 1
+})
+
+text1 = hmUI.createWidget(hmUI.widget.TEXT, {
+  x: 0,
+  y: 400,
+  w: 480,
+  h: 80,
+  text_size: 42,
+  color: 0xffffff,
+  text: 'get_time_date'
+})
+
+text1.addEventListener(hmUI.event.CLICK_UP, function cb(info) {
+  date_val = pickdate.getProperty(hmUI.prop.MORE, {})
+  console.log('pick date:', date_val.year, date_val.month, date_val.day)
+
+  time_val = picktime.getProperty(hmUI.prop.MORE, {})
+  console.log('pick time:', time_val.hour, time_val.minute)
+})
+Previous
+« GROUP
+Next
+createWidget »
+Create UI components
+Type
+Param: object
+getProperty supported Fields
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.
+
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+GROUP
+GROUP group component is used to group a series of components together for unified control of show/hide, registering events, etc.
+
+The returned group instance has the method createWidget, which is used to create UI components belonging to the group group, and the sub-components need to use relative positions for layout.
+
+CAUTION
+The group instance of createWidget cannot create child GROUP components, i.e. GROUP components cannot be nested.
+
+Create UI components​
+const group = hmUI.createWidget(hmUI.widget.GROUP, Param)
+
+// Creating UI sub-components
+group.createWidget(xxx, xxx)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of component.	YES	number
+y	The y-coordinate of component.	YES	number
+w	The width of component.	YES	number
+h	The height of the component.	YES	number
+Previous
+« HISTOGRAM
+Next
+PICK_DATE »
+Create UI components
+Type
+Param: object
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.
+
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+HISTOGRAM
+Draws a histogram.
+
+Create UI controls​
+const histoGram = hmUI.createWidget(hmUI.widget.HISTOGRAM, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of component.	YES	number
+y	The y-coordinate of component.	YES	number
+w	The width of component.	YES	number
+h	The height of the component.	YES	number
+item_width	Width of column.	YES	number
+item_space	Space of column.	YES	number
+item_radius	Radius of column.	YES	number
+item_start_y	The starting Y point of the column, relative coordinate, default is 0 if not filled.	NO	number
+item_max_height	Maximum height of column.If unfilled,default is control height.	NO	number
+item_color	Color of column.	YES	number
+data_min_value	Minimum value of the column.Used to calculate the actual height of the column.	YES	number
+data_max_value	Maximum value of the column.Used to calculate the actual height of the column.	YES	number
+data_array	Data array of columns.	YES	Array<number>
+data_count	Length of data.	YES	number
+xline	Configuration objects for the x-axis.	YES	XLine
+xText	Configuration object for x-axis text.	YES	XText
+yline	Configuration objects for the y-axis.	YES	YLine
+yText	Configuration object for y-axis text.	YES	YText
+XLine: object​
+Properties	Description	Required	Type
+pading	Margin of dividing line based on x-axis.	YES	number
+space	The interval of the dividing line.	YES	number
+start	The y-axis coordinates of the start of the divider.	YES	number
+end	The y-axis coordinate of the end of the divider end-start is the width of the divider.	YES	number
+width	The width of the line.	YES	number
+count	The number of dividers.	YES	number
+color	The color of the dividing line.	YES	number
+YLine: object​
+Properties	Description	Required	Type
+pading	Margin of dividing line based on y-axis.	YES	number
+space	The interval of the dividing line.	YES	number
+start	The x-axis coordinates of the start of the divider.	YES	number
+end	The x-axis coordinate of the end of the divider end-start is the width of the divider.	YES	number
+width	The width of the line.	YES	number
+count	The number of dividers.	YES	number
+color	The color of the dividing line.	YES	number
+XText: object​
+Properties	Description	Required	Type
+x	The initial x-coordinate of the text.	YES	number
+y	The initial y-coordinate of the text.	YES	number
+w	The width of the text.	YES	number
+h	The height of the text.	YES	number
+space	The spacing of the text.The x-coordinate of the nth text = x + (w + space)*(n - 1).	YES	number
+color	The color of the text	YES	number
+data_array	The array of text.	YES	Array<string>
+count	The length of the array.	YES	number
+yText: object​
+Properties	Description	Required	Type
+x	The initial x-coordinate of the text.	YES	number
+y	The initial y-coordinate of the text.	YES	number
+w	The width of the text.	YES	number
+h	The height of the text.	YES	number
+space	The spacing of the text.The x-coordinate of the nth text = y + (h + space)*(n - 1).	YES	number
+color	The color of the text	YES	number
+data_array	The array of text.	YES	Array<string>
+count	The length of the array.	YES	number
+Update item data​
+const view = ......;
+  view.setProperty(hmUI.prop.UPDATE_DATA, {
+  data_array: [100, 100, 0, 0, 0, 100],
+  data_count: 6
+})
+Code example​
+//Temporary addition of a background to see the effect.
+const fillRect = hmUI.createWidget(hmUI.widget.FILL_RECT, {
+  x: 100,
+  y: 100,
+  w: 300,
+  h: 300,
+  color: 0xffebee
+})
+
+const view = hmUI.createWidget(hmUI.widget.HISTOGRAM, {
+  x: 100,
+  y: 100,
+  h: 300,
+  w: 300,
+  item_width: 20,
+  item_space: 10,
+  item_radius: 10,
+  item_start_y: 50,
+  item_max_height: 230,
+  item_color: 0x304ffe,
+  data_array: [20, 30, 40, 50, 60, 100, 80, 90, 20, 30],
+  data_count: 10,
+  data_min_value: 10,
+  data_max_value: 100,
+  xline: {
+    pading: 20,
+    space: 30,
+    start: 0,
+    end: 300,
+    color: 0x00c853,
+    width: 1,
+    count: 10
+  },
+  yline: {
+    pading: 10,
+    space: 10,
+    start: 0,
+    end: 300,
+    color: 0xff6d00,
+    width: 1,
+    count: 30
+  },
+  xText: {
+    x: 12,
+    y: 270,
+    w: 20,
+    h: 50,
+    space: 10,
+    align: hmUI.align.LEFT,
+    color: 0x000000,
+    count: 10,
+    data_array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  },
+  yText: {
+    x: 0,
+    y: 20,
+    w: 50,
+    h: 50,
+    space: 10,
+    align: hmUI.align.LEFT,
+    color: 0x000000,
+    count: 2,
+    data_array: ['a', 'b']
+  }
+})
+Previous
+« CYCLE_IMAGE_TEXT_LIST
+Next
+GROUP »
+Create UI controls
+Type
+Param: object
+XLine: object
+YLine: object
+XText: object
+yText: object
+Update item data
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.
+Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+CYCLE_IMAGE_TEXT_LIST
+Create a list that can be scrolled in a loop, filled with images and text.
+
+Create UI components​
+const cycleImageTextList = hmUI.createWidget(hmUI.widget.CYCLE_IMAGE_TEXT_LIST, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+item_image_x	The x-coordinate of Image.(Relative coordinate)	YES	number
+item_image_y	The y-coordinate of Image.(Relative coordinate)	YES	number
+item_text_x	The x-coordinate of text.(Relative coordinate)	YES	number
+item_text_y	The y-coordinate of text.(Relative coordinate)	YES	number
+item_text_size	Font Size.	YES	number
+item_text_color	Font color.	YES	number
+item_bg_color	Background color.	YES	number
+item_height	The height of item.	YES	number
+x	The x-coordinate of components.	YES	number
+y	The y-coordinate of components.	YES	number
+w	The width of components.	YES	number
+h	The height of components.	YES	number
+data_array	Data arrays.	YES	Array<Data>
+data_size	The length of the array.	YES	number
+item_text_align_h	Text horizontal orientation.Unfilled default horizontal centering.	NO	number
+item_text_align_v	Vertical orientation of text.Unfilled defaults to vertical centering.	NO	number
+item_text_height	Actual display area of text.Default to item_height if not filled.	NO	number
+item_text_width	The actual text display area.Default to the control display width if not filled.	NO	number
+item_click_func	Callback for item click.	NO	ItemClickFunc
+Data: object​
+Properties	Description	Required	Type
+src	The path of image.	NO	string
+text	The content of text.	YES	string
+ItemClickFunc: function​
+(cycleList: CycleList, index: number) => void
+Properties	Type	Notes
+cycleList	object	The instance of cycleList.
+index	number	Clicked item index.Starting from 0.
+Set the properties of a single item text​
+Note that setting the properties of a single item text is a temporary control that does not save this information.
+
+Properties	Description	Required	Type
+index	The index of item.Starting from 0.	YES	number
+item_text_color	The color of the text.	NO	number
+item_text_size	The size of the text.	NO	number
+const widget = ...
+widget.setProperty(hmUI.prop.ITEM_MORE,{
+  index:0,
+  item_text_color:0x2f4988,
+  item_text_size:50
+})
+Refresh ITEM​
+This is set for the property ITEM_MORE. After setting the property with ITEM_MORE, you can refresh ITEM if you want to revert to its original state.
+widget.setProperty(hmUI.prop.ITEM_REFRESH, 0) // 0 is the index of item , starting from 0.
+Set the top item index of the list​
+Set the index value of the top item of the list with the LIST_TOP property to display the list at the specified position of the item.
+Translated with www.DeepL.com/Translator (free version)
+
+Name	Description	Required	Type
+index	The index of item.Starting from 0.	YES	number
+Code example​
+function itemClick(list, index) {}
+const data_array = [
+  { src: rootPath + 'step/step_num_0.png', text: '1' },
+  { src: rootPath + 'step/step_num_1.png', text: '2' },
+  { src: rootPath + 'step/step_num_2.png', text: '3' }
+]
+cycleList = hmUI.createWidget(hmUI.widget.CYCLE_IMAGE_TEXT_LIST, {
+  x: 0,
+  y: 0,
+  w: 200,
+  h: 400,
+  data_array: data_array,
+  data_size: 3,
+  item_height: 100,
+  item_bg_color: 0xffffff,
+  item_text_color: 0x000000,
+  item_text_x: 10,
+  item_text_y: 10,
+  item_text_size: 18
+})
+
+//Get the index value of the first row.
+ret = cycleList.getProperty(hmUI.prop.MORE, {})
+console.log(ret.index)
+Previous
+« CYCLE_LIST
+Next
+HISTOGRAM »
+Create UI components
+Type
+Param: object
+Data: object
+ItemClickFunc: function
+Set the properties of a single item text
+Refresh ITEM
+Set the top item index of the list
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+CYCLE_LIST
+Create a list that scrolls in a loop, which can be populated with images.
+
+Create UI controls​
+const cycleList = hmUI.createWidget(hmUI.widget.CYCLE_LIST, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+item_bg_color	Background color.	YES	number
+item_height	The height of item.	YES	number
+x	The x-coordinate of components.	YES	number
+y	The y-coordinate of components.	YES	number
+w	The width of components.	YES	number
+h	The height of components.	YES	number
+data_array	Data arrays.	YES	Array<Data>
+data_size	The length of the array.	YES	number
+item_click_func	Callback for item click.	NO	ItemClickFunc
+ItemClickFunc: function​
+(cycleList: CycleList, index: number) => void
+Properties	Type	Notes
+cycleList	object	The instance of cycleList.
+index	number	Clicked item index.Starting from 0.
+Code example​
+function _itemClick(list, index) {}
+const imgArray = ['1.png', '2.png', '3.png', '4.png', '5.png']
+const cycleList = hmUI.createWidget(hmUI.widget.CYCLE_LIST, {
+  x: 0,
+  y: 0,
+  w: 454,
+  h: 300,
+  data_array: imgArray,
+  data_size: 5,
+  item_height: 100,
+  item_click_func: _itemClick,
+  item_bg_color: 0xff0000
+})
+Previous
+« SCROLL_LIST
+Next
+CYCLE_IMAGE_TEXT_LIST »
+Create UI controls
+Type
+Param: object
+ItemClickFunc: function
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+SCROLL_LIST
+Create a sliding list area, which can be filled with pictures and text.
+
+Create UI components​
+const scrollList = hmUI.createWidget(hmUI.widget.SCROLL_LIST, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of the component.	YES	number
+y	The y-coordinate of the component.	YES	number
+w	Width of the component.	YES	number
+h	The height of the component.	YES	number
+item_space	Space between each item.	NO	number
+item_config	Configuration information for item,see the description below.	YES	ItemConfig
+item_config_count	The length of the tem_config array.	YES	number
+data_array	Data sets, a structure array, see description below.	YES	DataArray
+data_count	The length of data set.	YES	number
+item_click_func	Callback.	NO	function
+data_type_config	Which item type configuration information should be used for each row of data, see the description below.	NO	array
+data_type_config_count	The length of set.	NO	number
+on_page	Used when updating data, set to 1 means keep the current page after updating the data.	NO	number
+ItemConfig: object​
+Properties	Description	Required	Type
+type_id	The current item type Id, js guarantees that it is NOt repeated. If item_config_count is 0, it can be left blank, otherwise it is required.	NO	number
+item_height	Item's height.	YES	number
+item_bg_color	Item's background color.	YES	number
+item_bg_radius	The rounded corners of the item's background.	YES	number
+text_view	The structure array of textView, each item is a textView. See the description below.	NO	Array<TextView>
+text_view_count	Array's length of text_view.	NO	number
+image_view	Array of imageView, each item is an imageView.See description below.	NO	Array<ImageView>
+image_view_count	The length of the image_view array.	NO	number
+item_config Complete Configuration​
+const item_config = [
+  {
+    type_id: 1,
+    item_bg_color: 0xef5350,
+    item_bg_radius: 10,
+    text_view: [
+      {
+        x: 100,
+        y: 0,
+        w: 100,
+        h: 20,
+        key: 'name',
+        color: 0xffffff
+      },
+      {
+        x: 0,
+        y: 30,
+        w: 100,
+        h: 100,
+        key: 'age',
+        color: 0xffffff,
+        text_size: 20
+      }
+    ],
+    text_view_count: 2,
+    item_height: 130
+  },
+  {
+    type_id: 2,
+    item_bg_color: 0xef5350,
+    item_bg_radius: 10,
+    text_view: [{ x: 100, y: 0, w: 100, h: 20, key: 'like', color: 0x3d5afe }],
+    text_view_count: 1,
+    item_height: 100
+  }
+]
+TextView: object​
+All relative coordinates involving location information.
+
+Properties	Description	Required	Type
+x	x-coordinate	YES	number
+y	y-coordinate	YES	number
+w	The width of component.	YES	number
+h	The length of the component.	YES	number
+color	The color of text.	NO	number
+text_size	The size of text.	NO	number
+key	Data binding.See usage examples and data_array descriptions for details.	YES	string
+// Each structure in the array is a textView.
+const text_view = [
+  { x: 100, y: 0, w: 100, h: 20, key: 'name', color: 0xffffff },
+  { x: 0, y: 30, w: 100, h: 100, key: 'age', color: 0xffffff, text_size: 20 }
+]
+ImageView: object​
+All relative coordinates involving location information.
+
+Properties	Description	Required	Type
+x	x-coordinate.	YES	number
+y	y-coordinate.	YES	number
+w	The width of component.	YES	number
+h	The length of the component.	YES	number
+color	The color of text.	NO	number
+key	Data binding.See usage examples and data_array descriptions for details.	YES	string
+// Each structure in the array is an imageView.
+const image_view = [{ x: 0, y: 0, w: 20, h: 20, key: 'img_src' }]
+data_array Configuration​
+Each key is the key value when the View is added above.
+Rendering will get the key value of each view from each View and look it up in the data_array.
+const dataList = [
+  { img_src: rootPath + 'step/step_num_1.png', name: 'name1', age: '12' },
+  { img_src: rootPath + 'step/step_num_1.png', name: 'name1', age: '13' },
+  { img_src: rootPath + 'step/step_num_1.png', name: 'name1', age: '13' }
+]
+data_type_config Configuration Information​
+If the id of the configured type is the 0 item of item_config then the configuration can be omitted.
+
+Properties	Description	Required	Type
+start	Index of start	YES	number
+end	Index of the end	YES	number
+type_id	ID	YES	number
+The relationship between start and end is the closed interval [start, end].
+
+{
+data_type_config:[
+  //The data representing the index from 0 to 2 uses the style with type_id of 2.
+  {
+  start: 0,
+  end: 2,
+  type_id: 2,
+  },
+  {
+  start: 3,
+  end: 10,
+  type_id: 1,
+  },
+],
+data_type_config_count:2
+}
+Refresh data​
+const scrollList = hmUI.createWidget(hmUI.widget.SCROLL_LIST, Param)
+scrollList.setProperty(hmUI.prop.UPDATE_DATA, {
+  //Reset configuration information
+  data_type_config: [
+    {
+      start: 0,
+      end: 2,
+      type_id: 2
+    }
+  ],
+  //Configuration the length of information
+  data_type_config_count: 1,
+  //New data
+  data_array: [
+    { img_src: rootPath + 'test/NOrmalbtn_h.png', name: 'Name', age: '12', like: 'type2' },
+    { img_src: rootPath + 'test/NOrmalbtn_h.png', name: 'namex1', age: '13', like: 'type2' },
+    { img_src: rootPath + 'test/NOrmalbtn_h.png', name: 'namex2', age: '13', like: 'type2' },
+    { img_src: rootPath + 'test/NOrmalbtn_h.png', name: 'namex3', age: '12', like: 'type2' },
+    { img_src: rootPath + 'test/NOrmalbtn_h.png', name: 'name666', age: '13', like: 'type2' }
+  ],
+  //The length of the data
+  data_count: 5,
+  //Refresh the data and stay on the current page. If it is not set or set to 0, it will return to the top of the list.
+  on_page: 1
+})
+Code example​
+const dataList = [
+  { img_src: rootPath + 'step/step_num_1.png', name: 'xiaoming', age: '12' },
+  { img_src: rootPath + 'step/step_num_1.png', name: 'xiaohong', age: '13' },
+  { img_src: rootPath + 'step/step_num_1.png', name: 'xiaolan', age: '13' }
+]
+
+function scrollListItemClick(list, index) {
+  console.log('scrollListItemClick index=' + index)
+}
+
+const scrollList = hmUI.createWidget(hmUI.widget.SCROLL_LIST, {
+  x: 10,
+  y: 0,
+  h: 454,
+  w: 200,
+  item_space: 10,
+  item_config: [
+    {
+      type_id: 1,
+      item_bg_color: 0xef5350,
+      item_bg_radius: 10,
+      text_view: [
+        { x: 100, y: 0, w: 100, h: 20, key: 'name', color: 0xffffff },
+        { x: 0, y: 30, w: 100, h: 100, key: 'age', color: 0xffffff, text_size: 20 }
+      ],
+      text_view_count: 2,
+      item_height: 130
+    },
+    {
+      type_id: 2,
+      item_bg_color: 0xef5350,
+      item_bg_radius: 10,
+      text_view: [{ x: 100, y: 0, w: 100, h: 20, key: 'like', color: 0x3d5afe }],
+      text_view_count: 1,
+      item_height: 100
+    }
+  ],
+  item_config_count: 2,
+  data_array: dataList,
+  data_count: dataList.length,
+  item_click_func: this.scrollListItemClick,
+  data_type_config: [
+    {
+      start: 0,
+      end: 2,
+      type_id: 2
+    }
+  ],
+  data_type_config_count: 1
+})
+Previous
+« DIALOG
+Next
+CYCLE_LIST »
+Create UI components
+Type
+Param: object
+ItemConfig: object
+TextView: object
+ImageView: object
+data_array Configuration
+data_type_config Configuration Information
+Refresh data
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+DIALOG
+Dialog popup consists of a piece of text and two buttons. The popup box disappears when the buttons are clicked.
+
+Create UI components​
+const dialog = hmUI.createWidget(hmUI.widget.DIALOG, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+text	Contents of dialog.	YES	string
+content_text_size	y-coordinate of the dialog component.	NO	number
+content_text_color	The text color of the dialog content.	NO	number
+content_bg_color	The background color of the dialog content.	NO	number
+content_text_align_h	Alignment of dialog content text.(horizontal axis)	NO	string
+content_text_align_v	Alignment of dialog content text.(vertical axis)	NO	string
+ok_text	Text on the confirmed button.	NO	string
+ok_text_color	The color of the text on the confirmed button.	NO	number
+ok_press_color	The color when the confirmed button is pressed.	NO	number
+ok_nomal_color	The color when the confirmed button is normal.	NO	number
+ok_press_src	Background image when the confirmed button is pressed.	NO	string
+ok_nomal_src	Background image when the confirmed button is normal.	NO	string
+cancel_text	Text on the canceled button.	NO	string
+cancel_text_color	The color of the text on the canceled button.	NO	number
+cancel_press_color	The color when the canceled button is pressed.	NO	number
+cancel_nomal_color	The color when the canceled button is normal.	NO	number
+cancel_press_src	Background image when the canceled button is pressed.	NO	string
+cancel_nomal_src	Background image when the canceled button is normal.	NO	string
+dialog_align_h	The horizontal axis of the dialog.	NO	number
+dialog_align_v	The vertical axis of the dialog.	NO	number
+ok_func	Click the callback of the confirmed button.	NO	(dialog: Dialog) => void
+cancel_func	Click the callback of the canceled button.	NO	(dialog: Dialog) => void
+Dialog: object​
+Property	Description	Type
+text	The content of dialog.	string
+... omitted	Refer to dialog related properties in the setting field	
+prop Properties​
+Properties	Support get/set	Type	Notes
+SHOW	set	boolean	dialog whether to display.
+Code example​
+function dialogOk(dialog) {
+  console.log('ok')
+}
+function dialogCancel(dialog) {
+  console.log('cancel')
+}
+const dialog = hmUI.createWidget(hmUI.widget.DIALOG, {
+  text: 'this is a dialog',
+  content_bg_color: 0x000000,
+  content_text_color: 0xd0021b,
+  content_text_align_h: hmUI.align.CENTER_H,
+  content_text_align_v: hmUI.align.CENTER_V,
+
+  ok_text: 'okl',
+  ok_press_color: 0x1976d2,
+  ok_nomal_color: 0xef5350,
+  ok_text_color: 0xd4e157,
+
+  cancel_text: 'cancel_s',
+  cancel_press_color: 0x1976d2,
+  cancel_nomal_color: 0xef5350,
+  cancel_text_color: 0xd4e157,
+
+  dialog_align_h: hmUI.align.CENTER_H,
+
+  ok_func: dialogOk,
+  cancel_func: dialogCancel
+})
+dialog.setProperty(hmUI.prop.SHOW, true)
+Previous
+« SLIDE_SWITCH
+Next
+SCROLL_LIST »
+Create UI components
+Type
+Param: object
+Dialog: object
+prop Properties
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+SLIDE_SWITCH
+Used to switch between open and closed states.
+
+Create UI components​
+const slideSwitch = hmUI.createWidget(hmUI.widget.SLIDE_SWITCH, Param)
+类型​
+Param: object​
+Properties	Description	Required	Type
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+w	The width of the component.	YES	number
+h	The height of the component.	YES	number
+select_bg	The selected background.	YES	string
+un_select_bg	Unselected background.	YES	string
+slide_src	Switch button.	YES	string
+slide_select_x	The selected state of the switch button.(relative to x-coordinate)	YES	number
+slide_un_select_x	The unselected state of the switch button.(relative to x-coordinate)	YES	number
+slide_y	The y-axis offset of the switch button, relative to the coordinate	NO	number
+checked_change_func	Callback on state change.	NO	CheckedChangeFunc
+checked	Default switch state.	NO	boolean
+CheckedChangeFunc: function​
+(slideSwitch: SlideSwitch, checked: boolean) => void
+Parameters	Description	Type
+slideSwitch	The instance of slideSwitch	SlideSwitch
+checked	checked or unchecked	boolean
+Prop Properties​
+properties	description	support get/set	types
+CHECKED	Set switch state.Get switch state	set/get	boolean returns bool type when you get
+Code example​
+function slideCheckedChangeFunc(slide, checked) {
+  console.log('slide stateChange checked=' + checked)
+}
+const slideSwitch = hmUI.createWidget(hmUI.widget.SLIDE_SWITCH, {
+  x: 0,
+  y: 300,
+  w: 96,
+  h: 48,
+  select_bg: rootPath + 'test/slidebg_h.png',
+  un_select_bg: rootPath + 'test/slidebg.png',
+  slide_src: rootPath + 'test/slidebtn.png',
+  slide_select_x: 50,
+  slide_un_select_x: 5,
+  checked_change_func: slideCheckedChangeFunc
+})
+Previous
+« CHECKBOX_GROUP
+Next
+DIALOG »
+Create UI components
+类型
+Param: object
+CheckedChangeFunc: function
+Prop Properties
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+CHECKBOX_GROUP
+Used to select a single result among multiple options. Each individual option needs to be created using STATE_BUTTON.
+
+Create UI components​
+const checkGroup = hmUI.createWidget(hmUI.widget.CHECKBOX_GROUP, checkboxGroupParam)
+const stateButton = hmUI.createWidget(hmUI.widget.STATE_BUTTON, stateButtonParam)
+Type​
+checkboxGroupParam: object​
+Properties	Description	Required	Type
+x	The x-coordinate of components.	YES	number
+y	The y-coordinate of components.	YES	number
+w	The width of components.	YES	number
+h	The height of components.	YES	number
+select_src	The selected image of the components.	YES	string
+unselect_src	The unselected image of the components.	YES	string
+check_func	Callback when button state changes.	NO	CheckFunc
+CheckFunc: function​
+(checkboxGroup: CheckboxGroup, index: number, checked: boolean) => void
+Parameters	Description	Type
+checkboxGroup	The example of radioGroup.	CheckboxGroup
+index	Subview index for state changes	number
+checked	Check or not	boolean
+StateButton​
+Properties	Required	Type	Notes
+x	YES	number	The x-coordinate of components.
+y	YES	number	The y-coordinate of components.
+w	YES	number	The width of components.
+h	YES	number	The height of components.
+Prop Properties​
+Properties	Supports get/set	Type	Notes
+hmUI.prop.INIT	set	object	Initialize the component and set the default checkbox
+hmUI.prop.CHECKED	set/get	object(Returns the bool type when get)	Set selected sub-component.Get the selected state of the sub-component.
+hmUI.prop.UNCHECKED	set	object	Set unchecked sub-component.
+Code example​
+function checkButtonChecked(group, index, checked) {
+  console.log('checkIndex=' + index + ' checked=' + checked)
+}
+//Create checkGroup first
+const checkGroup = hmUI.createWidget(hmUI.widget.CHECKBOX_GROUP, {
+  x: 0,
+  y: 0,
+  w: 454,
+  h: 50,
+  select_src: rootPath + 'test/radio_d.png',
+  unselect_src: rootPath + 'test/radio_n.png',
+  check_func: checkButtonChecked
+})
+//Then create the subview by checkGroup
+const button1 = checkGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 0,
+  y: 0,
+  w: 50,
+  h: 50
+})
+const button2 = checkGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 50,
+  y: 0,
+  w: 50,
+  h: 50
+})
+const button3 = checkGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 100,
+  y: 0,
+  w: 50,
+  h: 50
+})
+
+//Initialize checkGroup after creation.The second parameter is the default selected view.
+checkGroup.setProperty(hmUI.prop.INIT, button3)
+//Call this property to select a sub-component.
+checkGroup.setProperty(hmUI.prop.CHECKED, this_page.button2)
+//Call this property to get the selected state of the sub-component.
+var checked = checkGroup.getProperty(hmUI.prop.CHECKED, button2)
+//Call this property to uncheck the sub-component.
+checkGroup.setProperty(hmUI.prop.UNCHECKED, this_page.button2)
+Previous
+« RADIO_GROUP
+Next
+SLIDE_SWITCH »
+Create UI components
+Type
+checkboxGroupParam: object
+CheckFunc: function
+StateButton
+Prop Properties
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+RADIO_GROUP
+Used to select a single result among multiple options. Each individual option needs to be created using STATE_BUTTON.
+
+Create UI components​
+const radioGroup = hmUI.createWidget(hmUI.widget.RADIO_GROUP, radioGroupParam)
+const stateButton = hmUI.createWidget(hmUI.widget.STATE_BUTTON, stateButtonParam)
+Type​
+radioGroupParam: object​
+Properties	Description	Required	Type
+x	The x-coordinate of the component.	YES	number
+y	The y-coordinate of the component.	YES	number
+w	Width of the component.	YES	number
+h	The height of the component.	YES	number
+select_src	The selected image of the component.	YES	string
+unselect_src	Unselected image of the component.	YES	string
+check_func	Callback when the button's state changes.	NO	CheckFunc
+CheckFunc: function​
+(radioGroup: RadioGroup, index: number, checked: boolean) => void
+Parameters	Description	Type
+radioGroup	The instance of radioGroup.	RadioGroup
+index	The index of state change.	number
+checked	Whether to check.	boolean
+StateButton: object​
+Properties	Description	Required	Type
+x	The x-coordinate of the component.	YES	number
+y	The y-coordinate of the component.	YES	number
+w	Width of the component.	YES	number
+h	The height of the component.	YES	number
+Prop Properties​
+Properties	Support get/set	Type	Notes
+INIT	set	object	Initialize the component and set the default selected items.
+CHECKED	set/get	object Return boolean when get	Set the selected sub-component, get the selected state of the sub-component.
+CURRENT_SELECT	get	object	Get the currently selected subcomponent.
+Code example​
+function _radioButtonChecked(group, index, checked) {
+  console.log('checkIndex=' + index + ' checked=' + checked)
+}
+//Create radioGroup first
+const radioGroup = hmUI.createWidget(hmUI.widget.RADIO_GROUP, {
+  x: 0,
+  y: 0,
+  w: 454,
+  h: 50,
+  select_src: rootPath + 'test/radio_d.png',
+  unselect_src: rootPath + 'test/radio_n.png',
+  check_func: this._radioButtonChecked
+})
+//Then create sub-views through radioGroup
+const button1 = radioGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 0,
+  y: 0,
+  w: 50,
+  h: 50
+})
+const button2 = radioGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 50,
+  y: 0,
+  w: 50,
+  h: 50
+})
+const button3 = radioGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+  x: 100,
+  y: 0,
+  w: 50,
+  h: 50
+})
+
+//After the creation is complete, initialize the radioGroup. The second parameter is the view selected by default.
+radioGroup.setProperty(hmUI.prop.INIT, button3)
+//Call this property to replace the selected component.
+radioGroup.setProperty(hmUI.prop.CHECKED, this_page.button2)
+//Call this property to get the selected state of sub-view.
+const checked = radioGroup.getProperty(hmUI.prop.CHECKED, button2)
+Previous
+« BUTTON
+Next
+CHECKBOX_GROUP »
+Create UI components
+Type
+radioGroupParam: object
+CheckFunc: function
+StateButton: object
+Prop Properties
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+BUTTON
+The button control supports setting images and colors for normal and pressed states.
+
+Create UI components​
+const button = hmUI.createWidget(hmUI.widget.BUTTON, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of components	YES	number
+y	The y-coordinate of components	YES	number
+w	The width of components;If set to -1, the size of normal_src is preferred, otherwise the default is 100.	YES	number
+h	The height of components;If set to -1, the size of normal_src is preferred, otherwise the default is 40.	YES	number
+text	Text displayed on the button.	YES	string
+color	The color of the text.	NO	number
+text_size	The font size of the text.	NO	number
+press_src	The image of background displayed when pressed.	NO	string
+normal_src	Normal state of the background image.	NO	string
+press_color	The color of background when pressed.	NO	number
+normal_color	The color of normal state background.	NO	number
+radius	Rounded corners when using color as button background.	NO	number
+click_func	Callbacks for button clicks.	NO	ClickFunc
+When neither the background nor the color of the button is set, the default click state background color is used (normal black, click gray).
+When both the background and color of the button are set, the background color is used instead of the background image.
+The radius field is only useful when the background color is set.
+ClickFunc​
+(button: Button) => void
+The button instance created by the createWidget method.
+
+Code example​
+function buttonClickFunc(button) {}
+const button = hmUI.createWidget(hmUI.widget.BUTTON, {
+  x: 0,
+  y: 100,
+  w: 218,
+  h: 74,
+  press_src: rootPath + 'test/normalbtn_h.png',
+  normal_src: rootPath + 'test/normalbtn_n.png',
+  press_color: 0x1976d2,
+  normal_color: 0xef5350,
+  text: 'button',
+  click_func: buttonClickFunc
+})
+Previous
+« CIRCLE
+Next
+RADIO_GROUP »
+Create UI components
+Type
+Param: object
+ClickFunc
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+CIRCLE
+Draws a circle with support for color, transparency, and other properties.
+
+Creating UI components​
+const circle = hmUI.createWidget(hmUI.widget.CIRCLE, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+center_x	Center of circle x.	YES	number
+center_y	Center of circle y.	YES	number
+radius	Radius.	YES	number
+color	Color 16-increment value.	YES	number
+alpha	Transparency.[0-255]	NO	number
+Code example​
+const circle = hmUI.createWidget(hmUI.widget.CIRCLE)
+circle.setProperty(hmUI.prop.MORE, {
+  center_x: 100,
+  center_y: 100,
+  radius: 200,
+  color: 0x1a1a1a
+})
+Previous
+« IMG_ANIM
+Next
+BUTTON »
+Creating UI components
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+IMG_ANIM
+Play the pre-given image at the set frame rate to create an animation effect.
+
+Create UI components​
+const imgAnim = hmUI.createWidget(hmUI.widget.IMG_ANIM, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of animation.	YES	number
+y	The y-coordinate of animation.	YES	number
+anim_path	The path to the image for animation.	YES	string
+anim_prefix	The name to the image for animation.	YES	number
+anim_ext	Image extensions.	YES	number
+anim_fps	Number of frames of animation.	YES	number
+repeat_count	Number of animation repetitions, if 0 then infinite.	YES	number
+anim_repeat	Whether to repeat the playback; this value is true if repeat_count is 0.	No	boolean
+anim_size	The number of images.	YES	number
+anim_status	The status of animation;start 1, pause 2, stop 3.	YES	number
+anim_complete_call	This function is callback when the animation is executed successfully. repeat_count is invalid if 0. Parameters anim is an instance to create the animation.	NO	function
+Supported properties​
+Please pay attention to the animation order of the current settings when setting animation properties, the widget has been protected internally.
+
+Value	Description
+hmUI.anim_status.START	Start animation; only pause stop is allowed to be called after starting the animation.
+hmUI.anim_status.PAUSE	Pause animation; can only be called after starting the animation and resuming it.
+hmUI.anim_status.RESUME	Resume animation; can only be called after pausing the animation.
+hmUI.anim_status.STOP	Stop animation; can only be called after starting the animation and resuming it.
+Get animation status Return type boolean​
+Value	Description
+hmUI.prop.ANIM_IS_RUNINNG	Is the animation running.
+hmUI.prop.ANIM_IS_PAUSE	Whether the animation is paused.
+hmUI.prop.ANIM_IS_STOP	Whether the animation is stopped.
+Code example​
+//Start animation
+animResident.setProperty(hmUI.prop.ANIM_STATUS, hmUI.anim_status.START)
+//Whether the animation is running
+const isRunning = animResident.getProperty(hmUI.prop.ANIM_IS_RUNINNG)
+
+console.log('anim isRunning ' + isRunning)
+const animDemo = hmUI.createWidget(hmUI.widget.IMG_ANIM, {
+  x: 0,
+  y: 0,
+  anim_path: rootPath + 'anim',
+  anim_prefix: 'anim',
+  anim_ext: 'png',
+  anim_fps: 25,
+  anim_size: 75,
+  repeat_count: 1,
+  anim_status: 1,
+  anim_complete_call: animCall
+})
+Previous
+« IMG_LEVEL
+Next
+CIRCLE »
+Create UI components
+Type
+Param: object
+Supported properties
+Get animation status Return type boolean
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+IMG_LEVEL
+Given an array of pictures, display the corresponding pictures according to the progress (the level property).
+
+Create UI components​
+const imgLevel = hmUI.createWidget(hmUI.widget.IMG_LEVEL, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of component.	Yes	number
+y	The y-coordinate of component.	Yes	number
+image_array	Array of images.	Yes	Array<string>
+image_length	Size of array.	yes	number
+w	The width of the component.(optional)	No	number
+h	The height of the component.(optional)	No	number
+level	Picture drawn [0-image_length]	No	number
+-If one of w / h is not written, it will go to image_array to read the width and height of the image as the width and height of the component.
+
+Code example​
+const imgArray = ['1.png', '2.png', '3.png']
+const imgLevel = hmUI.createWidget(hmUI.widget.IMG_LEVEL, {
+  x: 0,
+  y: 0,
+  w: 480,
+  h: 480,
+  image_array: imgArray,
+  image_length: 3,
+  level: 2 //level is 2.Draw the second picture.
+})
+Previous
+« IMG_PROGRESS
+Next
+IMG_ANIM »
+Create UI components
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+IMG_PROGRESS
+Display the images sequentially according to the given order.
+
+Create UI components​
+const imgProgress = hmUI.createWidget(hmUI.widget.IMG_PROGRESS, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	Array of x-coordinates of the images.	YES	array
+y	Array of y-coordinates of the images.	YES	array
+image_array	Array of images	YES	array
+image_length	The length of the array.	YES	number
+level	Progress level [1-image_length].	NO	number
+Code example​
+const xArray = [100, 200, 300]
+const yArray = [100, 200, 300]
+const imgArray = ['1.png', '2.png', '3.png']
+const imgProgress = hmUI.createWidget(hmUI.widget.IMG_PROGRESS, {
+  x: xArray,
+  y: yArray,
+  image_array: imgArray,
+  image_length: 3,
+  level: 2 //level is 2.Draw the second picture.
+})
+Previous
+« ARC_PROGRESS
+Next
+IMG_LEVEL »
+Create UI components
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+ARC_PROGRESS
+Arc progress control draws arc progress, supports start angle, line width, end angle, color, progress scale.
+
+Create UI controls​
+const arcProgress = hmUI.createWidget(hmUI.widget.ARC_PROGRESS, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+center_x	Center of circle x	YES	number
+center_y	Center of circle y	YES	number
+radius	Radius	YES	number
+start_angle	The angle at the beginning of the arc. (0 degrees is the positive three o'clock direction)	YES	number
+end_angle	The angle at the end of the arc. (0 degrees is the positive three o'clock direction)	YES	number
+line_width	Width of circular arc.	YES	number
+color	Color of circular arc.	YES	number
+src_bg	Background images.	NO	string
+level	The scale of arc progress. [0-100]	NO	number
+Code example​
+const arcProgress = hmUI.createWidget(hmUI.widget.ARC_PROGRESS)
+arcProgress.setProperty(hmUI.prop.MORE, {
+  center_x: 100,
+  center_y: 100,
+  radius: 200,
+  start_angle: -90,
+  end_angle: 90,
+  color: 0x34e073,
+  line_width: 10,
+  level: 50
+})
+Previous
+« TEXT_IMG
+Next
+IMG_PROGRESS »
+Create UI controls
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+TEXT_IMG
+Support displaying text as images, you need to pass in the image font array font_array.
+
+Create UI components​
+const textImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+w	The width of the component.It will be calculated automatically according to the type if not written.	YES	number
+h	The height of the component.It will be calculated automatically according to the type if not written.	YES	number
+font_array	Image font array.To sort by 0-9.	YES	array
+type	The type of data. See the following document for details.	NO	number
+text	It is used to specify the text content to be displayed; the type attribute will be disabled when this field is specified; the content only supports 0-9.	NO	string
+unit_sc	Simplified Chinese Units.	NO	string
+unit_en	English Units.	NO	string
+unit_tc	Traditional Chinese Unit.	NO	string
+imperial_unit_sc	Chinese Simplified (English Units).	NO	string
+imperial_unit_en	English imperial units.	NO	string
+imperial_unit_tc	Traditional Chinese (English Units).	NO	string
+negative_image	Negative sign picture.	NO	string
+dont_path	Decimal-point-pictures can be used as separators.	NO	string
+h_space	The font of space.	NO	number
+align_h	Horizontal axis alignment (see ALIGN for values).	NO	ALIGN
+ALIGN alignment​
+Value	Description
+hmUI.align.LEFT	Horizontal axis-left aligned
+hmUI.align.RIGHT	Horizontal axis-align right
+hmUI.align.CENTER_H	Horizontal axis-centered
+Text field binding unit minus sign decimal point resource picture.​
+Characters	Corresponding Resources
+u	International units and imperial units
+-	Negative Sign Picture
+.	Decimal point picture
+If the text field is set to "12u", the preceding 12 will go to the picture array to fetch the corresponding picture. When it encounters u, it will be automatically converted to a unit picture for drawing.
+
+Update Text​
+const widget = hmUI.createWidget(hmUI.widget.TEXT_IMG, Param)
+const text = "12" //If you want to not display the data write "" directly.
+widget.setProperty(hmUI.prop.TEXT,text)
+Code example​
+const fontArray = [
+  fontRootPath + '00.png',
+  fontRootPath + '01.png',
+  fontRootPath + '02.png',
+  fontRootPath + '03.png',
+  fontRootPath + '04.png',
+  fontRootPath + '05.png',
+  fontRootPath + '06.png',
+  fontRootPath + '07.png',
+  fontRootPath + '08.png',
+  fontRootPath + '09.png'
+]
+
+const dayText = hmUI.createWidget(hmui.widget.TEXT_IMG, {
+  x: 207,
+  y: 340,
+  type: 3,
+  font_array: fontArray,
+  h_space: 1,
+  align_h: 16,
+  type: 3,
+  text: '123'
+})
+Previous
+« STROKE_RECT
+Next
+ARC_PROGRESS »
+Create UI components
+Type
+Param: object
+ALIGN alignment
+Text field binding unit minus sign decimal point resource picture.
+Update Text
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+STROKE_RECT
+The stroked rectangle component adds a stroke on the basis of the filled rectangle component.
+
+Create UI components​
+const strokeRect = hmUI.createWidget(hmUI.widget.STROKE_RECT, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+w	The width of the component.	YES	number
+h	The height of the component.	YES	number
+color	The component's color.	YES	number
+radius	The rectangle's rounded corners.	NO	number
+line_width	The width of stroke.	YES	number
+angle	Rotation angle.	NO	number
+Code example​
+const strokeRect = hmUI.createWidget(hmUI.widget.STROKE_RECT, {
+  x: 0,
+  y: 0,
+  w: 480,
+  h: 480,
+  line_width: 10,
+  color: 0x000000
+})
+Previous
+« FILL_RECT
+Next
+TEXT_IMG »
+Create UI components
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+FILL_RECT
+The Fill Rectangle control is used to draw a solid color rectangular area.
+
+Create UI components​
+const fillRect = hmUI.createWidget(hmUI.widget.FILL_RECT, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of component.	YES	number
+y	The y-coordinate of component.	YES	number
+w	The width of component.	YES	number
+h	The height of the component.	YES	number
+color	The color of component.	YES	number
+radius	The radius of component.	NO	number
+line_width	Stroke Width	NO	number
+angle	The angle of component.	NO	number
+Code example​
+const fillRect = hmUI.createWidget(hmUI.widget.FILL_RECT, {
+  x: 0,
+  y: 0,
+  w: 480,
+  h: 480,
+  color: 0x000000
+})
+Previous
+« ARC
+Next
+STROKE_RECT »
+Create UI components
+Type
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+ARC
+圆弧控件展示圆弧进度。支持设置线宽、颜色、开始和结束的角度。
+
+创建 UI 控件​
+const arc = hmUI.createWidget(hmUI.widget.ARC, Param)
+类型​
+Param: object​
+Properties	Description	Required	Type
+x	The x-coordinate of components	YES	number
+y	The y-coordinate of components	YES	number
+w	The width of components	YES	number
+h	The height of components	YES	number
+radius	Radius	YES	number
+start_angle	The angle at the beginning of the arc. (0 degrees is the positive three o'clock direction)	YES	number
+end_angle	The angle at the end of the arc. (0 degrees is the positive three o'clock direction)	YES	number
+line_width	Width of circular arc.	YES	number
+color	Color of circular arc.	YES	number
+Code example​
+const arc = hmUI.createWidget(hmUI.widget.ARC)
+arc.setProperty(hmUI.prop.MORE, {
+  x: 100,
+  y: 100,
+  w: 200,
+  h: 200,
+  start_angle: -90,
+  end_angle: 90,
+  color: 0x34e073,
+  line_width: 10
+})
+Previous
+« TEXT
+Next
+FILL_RECT »
+创建 UI 控件
+类型
+Param: object
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+TEXT
+Text component for displaying text. Support setting text size, color and alignment.
+
+Create UI components​
+const text = hmUI.createWidget(hmUI.widget.TEXT, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+w	The width of the component.	YES	number
+h	The height of the component.	YES	number
+color	The color of the text.	NO	number
+align_h	The alignment of the horizontal axis (see ALIGN for values).	NO	ALIGN
+align_v	Alignment of the vertical axis (see ALIGN for values).	NO	ALIGN
+text	Text	NO	string
+text_size(removed later)	The size of the font.	NO	number
+font	Relative path to the font file.	NO	string
+text_style	Text overlength handling, default is runtime (see TEXT_STYLE for value).	NO	TEXT_STYLE
+line_space	Row spacing.	NO	number
+char_space	Character Spacing.	NO	number
+ALIGN alignment​
+Value	Description
+hmUI.align.LEFT	Horizontal axis-left aligned.
+hmUI.align.RIGHT	Horizontal axis-align right.
+hmUI.align.CENTER_H	Horizontal axis-centered.
+hmUI.align.TOP	Vertical axis-top.
+hmUI.align.BOTTOM	Vertical axis-bottommost.
+hmUI.align.CENTER_V	Vertical axis-centered.
+TEXT_STYLE Text layout​
+Value	Description
+hmUI.text_style.WRAP	Wrap by character.
+hmUI.text_style.CHAR_WRAP	Word wrap.
+hmUI.text_style.ELLIPSIS	Single line display...
+hmUI.text_style.NONE	Keep scrolling.
+Code example​
+const text = hmUI.createWidget(hmUI.widget.TEXT)
+text.setProperty(hmUI.prop.MORE, {
+  x: 0,
+  y: 0,
+  w: 200,
+  h: 200,
+  text: 'hello',
+  color: 0x34e073,
+  align_h: hmUI.align.LEFT
+})
+Previous
+« IMG
+Next
+ARC »
+Create UI components
+Type
+Param: object
+ALIGN alignment
+TEXT_STYLE Text layout
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.Skip to main content
+ZeppOS Logo
+ZeppOS Docs
+Introduction
+Guides
+App
+Watchface
+Samples
+English
+
+Mini Program Configuration
+Device App API
+hmUI Components Module
+Widget
+IMG
+TEXT
+ARC
+FILL_RECT
+STROKE_RECT
+TEXT_IMG
+ARC_PROGRESS
+IMG_PROGRESS
+IMG_LEVEL
+IMG_ANIM
+CIRCLE
+BUTTON
+RADIO_GROUP
+CHECKBOX_GROUP
+SLIDE_SWITCH
+DIALOG
+SCROLL_LIST
+CYCLE_LIST
+CYCLE_IMAGE_TEXT_LIST
+HISTOGRAM
+GROUP
+PICK_DATE
+createWidget
+addEventListener
+removeEventListener
+setProperty
+getProperty
+getId
+getType
+deleteWidget
+createDialog
+setScrollView
+getScrollCurrentPage
+scrollToPage
+showToast
+setLayerScrolling
+hmApp Device Module
+hmSetting OS Module
+hmSensor Sensor Module
+hmBle BLE
+hmFS File System Module
+Timer Module
+App Settings API
+Side Service API
+Related Resources
+IMG
+The image component is used to display images and supports image rotation.
+
+Create UI components​
+const img = hmUI.createWidget(hmUI.widget.IMG, Param)
+Type​
+Param: object​
+Properties	Description	Required	Type
+angle	The rotation angle of the picture (the 12-point direction is 0 degrees).	NO	number
+center_x	The rotation center of the picture.	NO	number
+center_y	The rotation center of the picture.	NO	number
+pos_x	The x point of the picture for the relative coordinate of the component.	NO	number
+pos_y	The y point of the picture for the relative coordinate of the component.	NO	number
+src	The path of the image.	YES	string
+w	The width of the component.If not passed then set the width of the image itself	NO	number
+h	The height of the component.If not passed then set the height of the image itself	NO	number
+x	The x-axis coordinate of the component.	YES	number
+y	The y-axis coordinate of the component.	YES	number
+Image example​
+axis
+
+rotate
+
+Code example​
+const img_hour = hmUI.createWidget(hmUI.widget.IMG)
+img_hour.setProperty(hmUI.prop.MORE, {
+  x: 0,
+  y: 0,
+  w: 454,
+  h: 454,
+  pos_x: 454 / 2 - 27,
+  pos_y: 50 + 50,
+  center_x: 454 / 2,
+  center_x: 454 / 2,
+  src: 'images/hour.png',
+  angle: 30
+})
+Previous
+
+
+
+« Mini Program Configuration
+Next
+TEXT »
+Create UI components
+Type
+Param: object
+Image example
+Code example
+Docs
+Guides
+References
+Samples
+Community
+Slack
+Stack Overflow
+More
+Copyright © 2022 Zepp Health, Inc.

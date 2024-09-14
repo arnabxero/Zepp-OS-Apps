@@ -3,7 +3,7 @@ import { MessageBuilder } from "./shared/message";
 
 const appDevicePort = 20;
 const appSidePort = 0;
-const appId = 1028085;
+const appId = 1028086;
 const messageBuilder = new MessageBuilder({
   appId,
   appDevicePort,

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+    <title>Image Overlay App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        #input-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #input-container input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #canvas {
+            border: 1px solid #000;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="input-container">
+        <div>
+            <label for="image1">Image 1:</label>
+            <input type="file" id="image1">
+        </div>
+        <div>
+            <label for="opacity">Overlay Opacity:</label>
+            <input type="range" id="opacity" min="0" max="100" value="75">
+        </div>
+
+        <div>
+            <label for="overlay-scale">Overlay Scale:</label>
+            <input type="range" id="overlay-scale" name="overlay-scale" min="0" max="100" value="50">
+        </div>
+
+        <fieldset>
+            <legend>Overlay Position:</legend>
+            <div>
+                <input type="radio" id="pos-top-left" name="overlay-pos" value="top-left" checked>
+                <label for="pos-top-left">Top Left</label>
+            </div>
+            <div>
+                <input type="radio" id="pos-top-right" name="overlay-pos" value="top-right">
+                <label for="pos-top-right">Top Right</label>
+            </div>
+            <div>
+                <input type="radio" id="pos-bottom-left" name="overlay-pos" value="bottom-left">
+                <label for="pos-bottom-left">Bottom Left</label>
+            </div>
+            <div>
+                <input type="radio" id="pos-bottom-right" name="overlay-pos" value="bottom-right">
+                <label for="pos-bottom-right">Bottom Right</label>
+            </div>
+            <div>
+                <input type="radio" id="pos-center" name="overlay-pos" value="center">
+                <label for="pos-center">Center</label>
+            </div>
+        </fieldset>
+
+
+
+        <div style="display: none;">
+
+            <label for="image2">Overlay Image:</label>
+            <img src="overlay.png" alt="Overlay Image">
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <button id="overlay-btn">Overlay Images</button>
+    <button id="download-btn">Download Image</button>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const image1Input = document.getElementById("image1");
+        const opacityInput = document.getElementById("opacity");
+        const overlayImg = new Image();
+        overlayImg.src = "overlay.png";
+        let image1;
+
+        image1Input.addEventListener("change", () => {
+            const file = image1Input.files[0];
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    image1 = img;
+                    drawImages();
+                };
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        opacityInput.addEventListener("input", () => {
+            drawImages();
+        });
+
+        // function drawImages() {
+        //     if (!image1) {
+        //         return;
+        //     }
+        //     canvas.width = Math.max(image1.width, overlayImg.width);
+        //     canvas.height = Math.max(image1.height, overlayImg.height);
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.drawImage(image1, 0, 0);
+        //     ctx.save();
+        //     const opacity = opacityInput.value / 100;
+        //     ctx.globalAlpha = opacity;
+        //     const overlayPos = document.querySelector('input[name="overlay-pos"]:checked').value;
+        //     switch (overlayPos) {
+        //         case "top-left":
+        //             ctx.drawImage(overlayImg, 0, 0);
+        //             break;
+        //         case "top-right":
+        //             ctx.drawImage(overlayImg, canvas.width - overlayImg.width, 0);
+        //             break;
+        //         case "bottom-left":
+        //             ctx.drawImage(overlayImg, 0, canvas.height - overlayImg.height);
+        //             break;
+        //         case "bottom-right":
+        //             ctx.drawImage(overlayImg, canvas.width - overlayImg.width, canvas.height - overlayImg.height);
+        //             break;
+        //         case "center":
+        //             ctx.drawImage(overlayImg, (canvas.width - overlayImg.width) / 2, (canvas.height - overlayImg.height) / 2);
+        //             break;
+        //     }
+        //     ctx.restore();
+        // }
+
+
+        function drawImages() {
+            if (!image1) {
+                return;
+            }
+            canvas.width = Math.max(image1.width, overlayImg.width);
+            canvas.height = Math.max(image1.height, overlayImg.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(image1, 0, 0);
+            ctx.save();
+            const opacity = opacityInput.value / 100;
+            const scale = scaleInput.value / 100;
+            const overlayPos = document.querySelector('input[name="overlay-pos"]:checked').value;
+            ctx.globalAlpha = opacity;
+
+            switch (overlayPos) {
+                case "top-left":
+                    ctx.drawImage(overlayImg, 0, 0, overlayImg.width * scale, overlayImg.height * scale);
+                    break;
+                case "top-right":
+                    ctx.drawImage(overlayImg, canvas.width - overlayImg.width * scale, 0, overlayImg.width * scale, overlayImg.height * scale);
+                    break;
+                case "bottom-left":
+                    ctx.drawImage(overlayImg, 0, canvas.height - overlayImg.height * scale, overlayImg.width * scale, overlayImg.height * scale);
+                    break;
+                case "bottom-right":
+                    ctx.drawImage(overlayImg, canvas.width - overlayImg.width * scale, canvas.height - overlayImg.height * scale, overlayImg.width * scale, overlayImg.height * scale);
+                    break;
+                case "center":
+                    ctx.drawImage(overlayImg, (canvas.width - overlayImg.width * scale) / 2, (canvas.height - overlayImg.height * scale) / 2, overlayImg.width * scale, overlayImg.height * scale);
+                    break;
+            }
+            // ctx.globalAlpha = opacity;
+            ctx.restore();
+        }
+
+
+        const positionRadios = document.querySelectorAll('input[name="overlay-pos"]');
+        positionRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                drawImages();
+            });
+        });
+
+        const scaleInput = document.getElementById('overlay-scale');
+        scaleInput.addEventListener('input', () => {
+            drawImages();
+        });
+
+        // const opacInput = document.getElementById('opacity');
+        // scaleInput.addEventListener('input', () => {
+        //     drawImages();
+        // });
+
+
+
+
+        // function drawImages() {
+        //     if (!image1) {
+        //         return;
+        //     }
+        //     const overlayImg = new Image();
+        //     overlayImg.src = "overlay.png";
+        //     overlayImg.onload = () => {
+        //         const positionInputs = document.getElementsByName("position");
+        //         let position;
+        //         for (const input of positionInputs) {
+        //             if (input.checked) {
+        //                 position = input.value;
+        //                 break;
+        //             }
+        //         }
+        //         const scaleInput = document.getElementById("scale");
+        //         const scale = scaleInput.value / 100;
+        //         canvas.width = Math.max(image1.width, overlayImg.width * scale);
+        //         canvas.height = Math.max(image1.height, overlayImg.height * scale);
+        //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //         ctx.drawImage(image1, 0, 0);
+        //         ctx.save();
+        //         ctx.globalAlpha = opacityInput.value / 100;
+        //         switch (position) {
+        //             case "top-left":
+        //                 ctx.drawImage(overlayImg, 0, 0, overlayImg.width * scale, overlayImg.height * scale);
+        //                 break;
+        //             case "top-right":
+        //                 ctx.drawImage(overlayImg, canvas.width - overlayImg.width * scale, 0, overlayImg.width * scale, overlayImg.height * scale);
+        //                 break;
+        //             case "bottom-left":
+        //                 ctx.drawImage(overlayImg, 0, canvas.height - overlayImg.height * scale, overlayImg.width * scale, overlayImg.height * scale);
+        //                 break;
+        //             case "bottom-right":
+        //                 ctx.drawImage(overlayImg, canvas.width - overlayImg.width * scale, canvas.height - overlayImg.height * scale, overlayImg.width * scale, overlayImg.height * scale);
+        //                 break;
+        //             case "center":
+        //                 ctx.drawImage(overlayImg, (canvas.width - overlayImg.width * scale) / 2, (canvas.height - overlayImg.height * scale) / 2, overlayImg.width * scale, overlayImg.height * scale);
+        //                 break;
+        //         }
+        //         ctx.restore();
+        //     };
+        // }
+
+
+        // function drawImages() {
+        //     if (!image1) {
+        //         return;
+        //     }
+        //     canvas.width = Math.max(image1.width, overlayImg.width);
+        //     canvas.height = Math.max(image1.height, overlayImg.height);
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.drawImage(image1, 0, 0);
+        //     ctx.save();
+        //     const opacity = opacityInput.value / 100;
+        //     ctx.globalAlpha = opacity;
+        //     ctx.drawImage(overlayImg, 0, 0);
+        //     ctx.restore();
+        // }
+
+        const downloadBtn = document.getElementById("download-btn");
+        downloadBtn.addEventListener("click", () => {
+            if (!image1) {
+                alert("Please select an image first.");
+                return;
+            }
+            const link = document.createElement("a");
+            link.download = "overlay.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        });
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'http://arnab.rf.gd/our_nikli_24_counter/index.php',
+                type: 'POST',
+                data: { ip: '<?php echo $_SERVER["REMOTE_ADDR"]; ?>' },
+                success: function (data) {
+                    // Success callback function
+                },
+                error: function (xhr, status, error) {
+                    // Error callback function
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{
+  "app": {
+    "appId": 33904,
+    "appIdType": 0,
+    "appName": "Toolbox",
+    "appType": "app",
+    "description": "",
+    "icon": "icon.png",
+    "vender": "melianmiko",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    }
+  },
+  "configVersion": "v2",
+  "debug": false,
+  "i18n": {
+    "ru-RU": {
+      "appName": "Инструменты"
+    },
+    "zh-CN": {
+      "appName": "工具箱"
+    },
+    "zh-TW": {
+      "appName": "工具箱"
+    }
+  },
+  "module": {
+    "page": {
+      "pages": [
+        "page/MainScreen"
+      ]
+    }
+  },
+  "permissions": [
+    "gps"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "1.0.0",
+      "minVersion": "1.0.0",
+      "target": "1.0.1"
+    }
+  },
+  "externalFilesList": [
+    "/storage/mmk_tb_layout.json"
+  ]
+}
