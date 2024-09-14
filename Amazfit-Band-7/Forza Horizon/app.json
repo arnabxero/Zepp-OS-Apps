@@ -1,0 +1,67 @@
+{
+  "i18n": {
+    "en-US": {
+      "appName": "Brick_Breaker"
+    }
+  },
+  "defaultLanguage": "en-US",
+  "app": {
+    "appIdType": 0,
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    },
+    "appId": 1028085,
+    "appName": "Brick_Breaker",
+    "icon": "icon.png",
+    "vender": "https://arnob.dev",
+    "description": "This is the recreation of the classic Brick Breaker game. Enjoy!"
+  },
+  "runtime": {
+    "apiVersion": {
+      "compatible": "1.0.0",
+      "target": "1.0.1",
+      "minVersion": "1.0.0"
+    }
+  },
+  "targets": {
+    "Amafit Band 7": {
+      "module": {
+        "page": {
+          "pages": [
+            "pages/initgame",
+            "pages/index.page",
+            "pages/setting",
+            "pages/gamepage",
+            "pages/devarnabxero",
+            "pages/goto_next_level"
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "name": "Amafit Band 7",
+          "deviceSource": 252
+        },
+        {
+          "name": "Amafit Band 7",
+          "deviceSource": 253
+        },
+        {
+          "name": "Amazfit Band 7",
+          "deviceSource": 254
+        }
+      ],
+      "designWidth": 216
+    }
+  },
+  "configVersion": "v2",
+  "permissions": []
+}
